@@ -15,13 +15,11 @@ class UsersController < ApplicationController
   	def show
     	@user = User.find(params[:id])
   	end
-<<<<<<< HEAD
+
     def edit
       @user = User.find(params[:id])
       
     end
-=======
->>>>>>> e6cc03f9236f1e087437f67f8f654ee184453782
 
   	def new
    		@user = User.new
