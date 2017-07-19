@@ -6,13 +6,21 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Artist.delete_all
 Song.delete_all 
+Artist.delete_all
+User.delete_all
+
 
 a = Artist.new
 s = Song.new 
+u = User.new
 
 a.assign_attributes(name: "Master P", genre: "Gangsta Rap")
 a.save
-s.assign_attributes(name: "Make em say uhhh", artist: a)
-s.save 
+
+u.assign_attributes(name: "andrew", email: "agottlie@gmail.com")
+u.save
+
+s.assign_attributes(name: "Make em say uhhh", artist: a, user: u)
+s.save
+
