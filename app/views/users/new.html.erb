@@ -2,7 +2,7 @@
 
 <%= simple_form_for @user do |f| %>
   <%= f.input :email, label: 'Your email please', error: 'Email is mandatory, please specify one' %>
-  <%= f.input :password,placeholder: 'Please type your password' %>
-  <%= f.input :confirm_password, placeholder: 'Please confirm your password' %>
+  <%= f.input :password, placeholder: 'Please type your password' %>
+  <%= f.input :password_confirmation, placeholder: 'Please confirm your password' %>
   <%= f.button :submit %>
 <% end %>
