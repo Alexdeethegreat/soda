@@ -1,0 +1,8 @@
+<%= simple_form_for @user do |f| %>
+  <%= f.input :email, error: 'Email is mandatory, please specify one' %>
+  <%= f.input :password,placeholder: 'Please type your password' %>
+  <%= f.input :genre, placeholder: 'Please confirm your password' %>
+  <%= f.input :location %>
+  <%= f.input :image_url %>
+  <%= f.button :submit %>
+<% end %>
