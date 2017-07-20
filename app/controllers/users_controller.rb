@@ -8,6 +8,7 @@ class UsersController < ApplicationController
   	end
 
     def profile
+      BlastSodJob.set(wait: 1.day).perform_later 
       @user = @require_current_user
       render "users#show"
     end
