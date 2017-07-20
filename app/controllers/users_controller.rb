@@ -19,15 +19,15 @@ class UsersController < ApplicationController
   
     def edit
       @user = User.find(params[:id])
-      if @user = User.update(user_params)
-      redirect_to @user
-     else
-      redirect_back fallback_location: edit_user_path(@user)
-    end
     end
 
     def update
       @user = User.find(params[:id])
+      if @user = User.update(:email, :password, :password_)
+      redirect_to @user
+     else
+      redirect_back fallback_location: edit_user_path(@user)
+    end
     end
 
   	def new
