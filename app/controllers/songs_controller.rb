@@ -44,6 +44,11 @@ class SongsController < ApplicationController
 	end
 
 	def query
+<<<<<<< HEAD
+=======
+		BlastSodJob.set(wait: 1.second)
+
+>>>>>>> 3fc1b7a3384da9c7935fe56d48ce3d8728f5ca6f
 		search_term = params[:queryterm]
 		spotify_token = ENV['SPOTIFY_API_TOKEN']
 		url = "GET https://api.spotify.com/v1/search"

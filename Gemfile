@@ -36,6 +36,9 @@ gem 'httparty'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'redis'
+gem 'sidekiq'
+
 gem 'dotenv-rails', groups: [:development, :test]
 
 group :development, :test do
