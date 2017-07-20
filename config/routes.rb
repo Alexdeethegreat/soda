@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :users, only: [:create, :show]
-  resources :songs, only: [:create, :index, :new, :edit, :update]
+  resources :songs, only: [:create, :index, :new, :edit, :update, :add]
   resources :artists
+
+  get "songs/favsong", to: "songs#add", as: :favsong
 
   get "songs/search", to: "songs#search", as: :search
 
