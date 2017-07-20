@@ -31,9 +31,12 @@ class UsersController < ApplicationController
    		@user = User.new(user_params)
    		# @user.avatar = "https://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(@user.email)}?d=identicon&f=y"
    		if @user.save
+
      	  session[:user_id] = @user.id
      	  redirect_to @user
+
    		else
+        p "user is being saved"
      	  redirect_to '/signup'
    		end
  	  end
