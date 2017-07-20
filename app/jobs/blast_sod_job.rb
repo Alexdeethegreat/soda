@@ -7,6 +7,6 @@ class BlastSodJob < ApplicationJob
     p "Andrew's Pie and High"
     @songs = Song.first 
     p @songs
-    render :body @song => 'users/edit' 
+    # render :body @song => 'users/edit' 
   end
 end
