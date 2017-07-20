@@ -1,4 +1,5 @@
 class SongsController < ApplicationController
+	include HTTParty
 	before_action :require_user 
 	before_action :logged_in, only: [:index, :show, :new, :update]
 	before_action :set_song, only: [:show, :edit, :update, :destroy]
@@ -41,7 +42,29 @@ class SongsController < ApplicationController
 			redirect_back fallback_location: @song 
 		end
 	end
+
+	def search
+		search_term = params[:queryterm]
+		spotify_token = ENV['SPOTIFY_API_TOKEN']
+		url = "GET https://api.spotify.com/v1/search"
+		response = HTTParty.get(
+			url,
+			headers: {
+				Authorization: "Bearer " + spotify_token
+			},
+			query: {
+				type: "track",
+				term: search_term
+			}
+
+		)
+
+		@tracks = response[]
+
+	end
+
 	private
+	
 	def song_params
 		params.require(:song).permit(:name, :genre, :votes)
 	end
