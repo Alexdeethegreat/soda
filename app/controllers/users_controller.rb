@@ -8,6 +8,7 @@ class UsersController < ApplicationController
   	end
 
     def profile
+      BlastSodJob.set(wait: 1.day).perform_later 
       @user = @require_current_user
       render "users#show"
     end
@@ -15,13 +16,12 @@ class UsersController < ApplicationController
   	def show
     	@user = User.find(params[:id])
   	end
-<<<<<<< HEAD
+  
     def edit
       @user = User.find(params[:id])
       
     end
-=======
->>>>>>> e6cc03f9236f1e087437f67f8f654ee184453782
+
 
   	def new
    		@user = User.new
@@ -31,9 +31,12 @@ class UsersController < ApplicationController
    		@user = User.new(user_params)
    		# @user.avatar = "https://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(@user.email)}?d=identicon&f=y"
    		if @user.save
+
      	  session[:user_id] = @user.id
      	  redirect_to @user
+
    		else
+        p "user is being saved"
      	  redirect_to '/signup'
    		end
  	  end
