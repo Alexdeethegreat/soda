@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   get "songs/search", to: "songs#search", as: :search
 
-  get "songs/:queryterm", to: "songs#query"
+  post "songs/:queryterm", to: "songs#query", as: :query
 
   get "/signup", to: "users#new", as: :signup
 

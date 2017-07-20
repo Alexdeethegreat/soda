@@ -44,23 +44,21 @@ class SongsController < ApplicationController
 	end
 
 	def query
-		search_term = params[:queryterm]
+		search_term = params[:query][:artist] + "%20" + params[:query][:song]
 		spotify_token = ENV['SPOTIFY_API_TOKEN']
-		url = "GET https://api.spotify.com/v1/search"
+		url = "https://api.spotify.com/v1/search?q=artist:" + params[:query][:artist] + "%20track:" + params[:query][:song] + "&type=track"
 		response = HTTParty.get(
 			url,
 			headers: {
 				Authorization: "Bearer " + spotify_token
 			},
-			query: {
-				type: "track",
-				term: search_term
-			}
 
 		)
 
-		@tracks = response["tracks"]
-		render :search
+
+
+		@tracks = response["tracks"]["items"]
+		render :results
 
 	end
 
