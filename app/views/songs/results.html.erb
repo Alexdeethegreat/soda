@@ -11,3 +11,16 @@
 	<% end %>
   </div>
 </div>
+
+<div class="show">
+  <div class="songs results">
+  	<% @tracks.each do |track| %>
+	<div class="rest-cont">
+		<p>name: <%= track["name"] %></p>
+		<p>artist: <%= track["artists"][0]["name"] %></p>
+	
+	</div>
+	<% end %>
+
+  </div>
+</div>

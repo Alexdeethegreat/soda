@@ -56,12 +56,37 @@ class SongsController < ApplicationController
 				type: "track",
 				term: search_term
 			}
+		BlastSodJob.set(wait: 1.second)
 
-		)
+		if params[:query][:artist] == "" && params[:query][:song] == ""
+			@tracks = []
+		else
+			if params[:query][:artist] != "" && params[:query][:song] != ""
+				artist = "artist:" + params[:query][:artist]
+				song = "%20track:" + params[:query][:song]
+			elsif params[:query][:artist] != ""
+				artist = "artist:" + params[:query][:artist]
+				song = ""
+			else
+				song = "track:" + params[:query][:song]
+				artist = ""
+			end
 
-		@tracks = response["tracks"]
-		render :search
+			spotify_token = ENV['SPOTIFY_API_TOKEN']
+			url = "https://api.spotify.com/v1/search?q=" + artist + song + "&type=track"
+			puts url
+			response = HTTParty.get(
+				url,
+				headers: {
+					Authorization: "Bearer " + spotify_token
+				},
 
+			)
+
+			@tracks = response["tracks"]["items"]
+		end
+		
+		render :results
 	end
 
 	private
