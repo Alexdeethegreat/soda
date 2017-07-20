@@ -14,11 +14,16 @@ class SongsController < ApplicationController
 		@artist = Artist.all
 	end
 	def create
-		@song = Song.new(song_params)
+		puts params[:add][:name]
+		@artist = Artist.new(name: "#{params[:add][:artist]}")
+		@song = Song.new(name: "#{params[:add][:name]}", votes: 0, user: @current_user, artist: @artist)
+		puts @song
 		if @song.valid?
+			puts "SUCCESS"
 			@song.save
-			redirect_to @song
+			redirect_to "/users/#{@current_user[:id]}"
 		else 
+			puts "FAIL"
 			flash[:song] = @song.errors.messages
 			redirect_back fallback_location: new_song_path
 		end
