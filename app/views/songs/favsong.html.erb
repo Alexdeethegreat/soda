@@ -1,2 +1,18 @@
-<h1>hi</h1>
+
+
+<%= render  'shared/header' %>
+<h1>Favorite Songs</h1>
+
+<div class="nav-links">
+
+<h1 class="page-title first-bg">Songs</h1>
+
+<div class="info-list">
+    <% @songs.each do |song| %>
+    <div class="song-info info">
+        <h2 class="card-title"><%= link_to(song.title, song) %></h2>
+        <h4><%= link_to("By: #{song.artist.name}", song.artist) %></h4>
+    </div>
+    <% end %>
+</div>
 
