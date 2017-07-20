@@ -2,20 +2,20 @@
 
 <div id='user_info'>
 
-<%= image_to (url:'')%>
+<%= @user.name %>
 
-<%= image_to (url:)%>
 
 <%= user.name %>
+
 </div>
 
 <div id='day'>Song of the Day</div>
-<% @artist.each do |artist|%>
-<%= @artist.name%>
-<%= @artist.genre%>
-<% end %>
+<!-- song of the day controller -->
 
 <div id='profile'>
+
 	<div id='artist'>Favorite Artist</div>
+<%= link_to ("Favorite Artist")%>
 	<div id='song'>Favorite Song</div>
+		<%= link_to ("Favorite Artist")%>
 </div>
