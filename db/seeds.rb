@@ -15,7 +15,7 @@ a = Artist.new
 s = Song.new 
 u = User.new
 
-a.assign_attributes(name: "Master P", genre: "Gangsta Rap")
+a.assign_attributes(name: "Master P")
 a.save
 
 u.assign_attributes(name: "andrew", email: "agottlie@gmail.com")

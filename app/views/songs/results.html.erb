@@ -18,7 +18,13 @@
 	<div class="rest-cont">
 		<p>name: <%= track["name"] %></p>
 		<p>artist: <%= track["artists"][0]["name"] %></p>
-	
+		<%= form_for(:add, url: "/songs/") do |f|%>
+		  <%= f.hidden_field :name, { :value => track["name"]} %>
+		  <%= f.hidden_field :artist, { :value => track["artists"][0]["name"]} %>
+		  <%= f.hidden_field :id, { :value => track["id"]} %>
+		  <%= f.hidden_field :genre, { :value => ""} %>
+		  <%= f.submit("Add") %>
+		<% end %>
 	</div>
 	<% end %>
 
