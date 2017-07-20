@@ -1,38 +1,11 @@
-<h1>Favorite Artists</h1>
-
-<div class="nav-links">
-
-<!-- We need these links here: Logout, Add song, Profile -->
-   <!-- <%= render "", {} %> -->
-
-   <%= link_to("", , :class => "") %>
-
+<h1>Artists</h1>
+<div>
+  <% @artists.each do |artist| %>
+    <div class="artist-info info">
+      <h2 class="card-title"><%= link_to(artist.name, artist) %></h2>
+    </div>
+  <% end %>
 </div>
 
 
-
-
-<!-- <div class="artist-songone">
-<h2>Artist with the Songs</h2>
-</div>
-
-<div class="artist-songtwo">
-<h2>Artist with the Songs</h2>
-</div>
-
-<div class="artist-songthree">
-<h2>Artist with the Songs</h2>
-</div>
-
-<div class="artist-songfour">
-<h2>Artist with the Songs</h2>
-</div>
-
-<div class="artist-songfive">
-<h2>Artist with the Songs</h2>
-</div>
-
-<div class="artist-songsix">
-<h2>Artist with the Songs</h2>
-</div> -->
 

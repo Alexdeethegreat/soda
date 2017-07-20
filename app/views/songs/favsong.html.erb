@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <%= render  'shared/header' %>
 <h1>Favorite Songs</h1>
 
@@ -8,9 +9,15 @@
 
    <%= link_to("", , :class => "") %>
 
-</div>
+=======
+<h1 class="page-title first-bg">Songs</h1>
 
-<div class="songs-artist">
-<h2>List of the Songs</h2>
-<h2>Votes</h2>
+<div class="info-list">
+    <% @songs.each do |song| %>
+    <div class="song-info info">
+        <h2 class="card-title"><%= link_to(song.title, song) %></h2>
+        <h4><%= link_to("By: #{song.artist.name}", song.artist) %></h4>
+    </div>
+    <% end %>
+>>>>>>> 6fa27c4635705fd40dc90e508f4e8f16d19ff89c
 </div>
