@@ -4,5 +4,6 @@
 <%= simple_form_for :session, url: login_path do |f| %>
   <%= f.input :email %>
   <%= f.input :password %>
-  <%= f.button redirect_to @user %>
+  <%= f.button :submit %>
+  <%= link_to 'Sign Up', signup_path %>
 <% end %>
