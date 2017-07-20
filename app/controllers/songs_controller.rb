@@ -43,7 +43,7 @@ class SongsController < ApplicationController
 		end
 	end
 
-	def search
+	def query
 		search_term = params[:queryterm]
 		spotify_token = ENV['SPOTIFY_API_TOKEN']
 		url = "GET https://api.spotify.com/v1/search"
@@ -59,7 +59,8 @@ class SongsController < ApplicationController
 
 		)
 
-		@tracks = response[]
+		@tracks = response["tracks"]
+		render :search
 
 	end
 
