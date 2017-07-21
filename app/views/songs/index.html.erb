@@ -11,6 +11,13 @@
     <div>
         <%= link_to(song.name, song) %>
         <h4><%= link_to("By: #{song.artist.name}", song.artist) %></h4>
+        <h5> 
+        <% if user.id = @current_user.id %>
+        <div class="button"> 
+        <%= button_to("+") %>
+        <% end %>
+        </div>
+        </h5>
     </div>
     <% end %>
 </div>
