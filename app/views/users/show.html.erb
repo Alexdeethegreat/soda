@@ -1,23 +1,24 @@
 <%= render  'shared/header' %>
-   <div id='user' class='d-flex align-items-start flex-column'>
-        <div id='user_info'>
+   
+                     <!-- SONG OF THE DAY, MIDDLE DIV -->
+   <div id='user' class='container'>
         <%= @user.name %>
-        </div>
-
-        <!-- SONG OF THE DAY, MIDDLE DIV -->
-        <div id='day' class="mr-p-2">
+      
+        <div class="row justify-content-around">
+            <div class='col-md-2'>
             Song of the Day
             <!-- song of the day controller -->
-        </div>
-        <!-- FAVORITE ARTIST -->
-        <div class="mb-auto p-2">
-            <%= link_to("Favorite Artist", new_artist_path)%>
-        </div>
-        <!-- FAVORITE SONG -->
-        <div class="p-2">
-            <%= link_to("Favorite Song", new_song_path)%>
-        </div>
+            </div>
 
-     <span> <%= link_to("Edit Profile", edit_user_path)%> </span>
+        <!-- FAVORITE ARTIST -->
+           <div class='col-lg-3 col-sm-offset-2 col-lg-4'>
+                 <%= link_to("Favorite Artist", new_artist_path)%>
+            </div>
+        <!-- FAVORITE SONG -->
+            <div class='col-xs-8 col-sm-offset-2 col-sm-5'>
+                 <%= link_to("Favorite Song", new_song_path)%>
+            </div> 
+        </div>
+            <span id='custom_prof'> <%= link_to("Edit Profile", edit_user_path)%> </span>
 
     </div>
