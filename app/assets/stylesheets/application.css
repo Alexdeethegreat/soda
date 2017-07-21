@@ -16,6 +16,7 @@
 body{
 	background:url(soda.jpeg) no-repeat left top;
 	background-size: fixed;
+	font-family: 'Lobster', cursive;
 }
 
 
@@ -69,24 +70,25 @@ body{
 .navbar{
 	background-color: transparent;
 	color: black;
+	border-bottom: grey solid;
 }
 
 #title{
 	margin: 0 auto;
-	font-size: 3em;
+	font-size: 2.8em;
 }
 
 #profile{
 	position: relative;
 	float:right;
-	font-size: 2em;
+	font-size: 1.5em;
 	padding: .2em;
 }
 
 #search{
 	position: relative;
 	float:right;
-	font-size: 2em;
+	font-size: 1.5em;
 	padding: .2em;
 
 }
@@ -94,7 +96,7 @@ body{
 #logout{
 	position: relative;
 	float:right;
-	font-size: 2em;
+	font-size: 1.5em;
 	padding: .2em;
 }
 
@@ -141,9 +143,10 @@ body{
 
 /********** USER PROFILE ***********/
 
-
-
-
+#user{
+	display: inline-block;
+	background-color: red;
+}
 
 
 /********* SONG SEARCH ************/
@@ -154,7 +157,7 @@ body{
 
 #music{
 	position: relative;
-	right: 15em;
+	left: 10em;
 }
 
 
