@@ -1,7 +1,8 @@
 class ArtistsController < ApplicationController
-	before_action :require_user 
-	before_action :logged_in, only: [:index, :show, :new, :update]
-	before_action :set_artist, only: [:show, :edit, :update, :destroy]
+	before_action :require_user, only: [:show, :index, :update, :edit]
+  	before_action :require_current_user, only: [:show, :edit, :update]
+
+	before_action :set_artist, only: [:edit, :update, :destroy]
 	def index
 		@artists = Artist.all 
 	end
@@ -17,7 +18,7 @@ class ArtistsController < ApplicationController
 			redirect_to @artist
 		else 
 			flash[:artist] = @artist.errors.messages
-			redirect_back fallback_location: new_artist_parth
+			redirect_back fallback_location: new_artist_path
 		end 
 	end
 	def edit
