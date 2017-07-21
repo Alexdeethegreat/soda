@@ -1,5 +1,5 @@
 <%= render  'shared/header' %>
-   
+
                      <!-- SONG OF THE DAY, MIDDLE DIV -->
    <div id='user' class='container'>
         <%= @user.name %>
@@ -23,6 +23,7 @@
             <%= link_to("Favorite Song", "/songs")%>
 
         </div>
-            <span id='custom_prof'> <%= link_to("Edit Profile", edit_user_path)%> </span>
-
+          <!-- FAVORITE SONG -->
+        <div class="p-2"> <%= link_to("Favorite Song", "/songs")%></div>
+        <span id='custom_prof'> <%= link_to("Edit Profile", edit_user_path)%> </span>
     </div>
