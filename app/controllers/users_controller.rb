@@ -23,12 +23,13 @@ class UsersController < ApplicationController
 
     def update
       @user = User.find(params[:id])
-      if @user = User.update(:email, :password, :password_)
-      redirect_to @user
-     else
-      redirect_back fallback_location: edit_user_path(@user)
+      if @user = User.update(user_params)
+        redirect_to "/users/#{@current_user[:id]}"
+      else
+        redirect_back fallback_location: edit_user_path(@user)
+      end
     end
-    end
+
 
   	def new
    		@user = User.new
@@ -51,7 +52,7 @@ class UsersController < ApplicationController
   	private
 
    	def user_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation)
+      params.require(:user).permit(:name, :email, :password, :password_confirmation, :genre, :image_url, :location)
    	end
 
 end

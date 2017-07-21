@@ -1,10 +1,43 @@
 <%= render  'shared/header' %>
-<%= simple_form_for @user do |f| %>
-  <%= f.input :email %>
-  <%= f.input :password,placeholder: 'Please type your password' %>
-  <%= f.input :password_confirmation %>
-  <%= f.input :genre %>
-  <%= f.input :location  %>
-  <%= f.input :image_url  %>
-  <%= f.button :submit %>
-<% end %>
+    <div class="container">
+        <%= simple_form_for @user do |f| %>
+            <!-- EMAIL -->
+            <div id='update_email' class="row">
+                <div class="col-xs-8 col-sm-offset-3 col-md-offset-4 col-md-7 col-lg-offset-4 col-lg-5">
+                    <%= f.input :email %>
+                </div>
+            </div>
+            <!-- PASSWORD -->
+            <div id='pass' class="row">
+                <div class="col-xs-8 col-sm-offset-3 col-md-offset-4 col-md-7 col-lg-offset-4 col-lg-5">
+                    <%= f.input :password,placeholder: 'Please type your password' %>
+                </div>
+            </div>
+            <!-- CONFIRM PASSWORD -->
+            <div id='pass_conf' class="row">
+                <div class="col-xs-8 col-sm-offset-3 col-md-offset-4 col-md-7 col-lg-offset-4 col-lg-5">
+                    <%= f.input :password_confirmation, placeholder: 'Please confirm your password' %>
+                </div>
+            </div>
+            <!-- GENRE -->
+            <div id='genre' class="row">
+                <div class="col-xs-8 col-sm-offset-3 col-md-offset-4 col-md-7 col-lg-offset-4 col-lg-5">
+                    <%= f.input :genre, placeholder: 'Type your favorite genre'  %>
+                </div>
+            </div>
+            <!-- LOCATION -->
+            <div class="row">
+                <div id='location' class="col-xs-8 col-sm-offset-3 col-md-offset-4 col-md-7 col-lg-offset-4 col-lg-5">
+                    <%= f.input :location, placeholder: 'Where do you live?' %>
+                </div>
+            </div>
+            <!-- IMAGE -->
+            <div class="row">
+                <div id='img' class="col-xs-8 col-sm-offset-3 col-md-offset-4 col-md-7 col-lg-offset-4 col-lg-5">
+                    <%= f.input :image_url  %>
+                </div>
+            </div>
+            <!-- SUBMIT -->
+            <span id='update'> <%= f.button :submit %> </span>
+            <% end %>
+    </div>

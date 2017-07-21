@@ -1,21 +1,34 @@
 class SongsController < ApplicationController
 	include HTTParty
-	before_action :require_user 
-	before_action :logged_in, only: [:index, :show, :new, :update]
+	before_action :require_user
+  	before_action :require_current_user, only: [:show, :update]
 	before_action :set_song, only: [:show, :edit, :update, :destroy]
+	
 	def index
 		@songs = Song.all
+		@artist = Artist.name
 	end
 
 	def show
 	end
+
 	def new
 		@song = Song.new
 		@artist = Artist.all
 	end
 	def create
 		puts params[:add][:name]
-		@artist = Artist.new(name: "#{params[:add][:artist]}")
+		found = false
+		artists = Artist.all
+		artists.each do |artist|
+			if artist[:name] == params[:add][:artist]
+				@artist = artist
+				found = true
+			end
+		end
+		if !found
+			@artist = Artist.new(name: "#{params[:add][:artist]}")
+		end
 		@song = Song.new(name: "#{params[:add][:name]}", votes: 0, user: @current_user, artist: @artist)
 		puts @song
 		if @song.valid?
@@ -49,8 +62,6 @@ class SongsController < ApplicationController
 	end
 
 	def query
-		BlastSodJob.set(wait: 1.second)
-
 		if params[:query][:artist] == "" && params[:query][:song] == ""
 			@tracks = []
 		else
