@@ -1,0 +1,29 @@
+<h1 id='head'>Please Login</h1>
+<%= simple_form_for :session, url: login_path do |f| %>
+    <div class="container">
+                <!-- SIGN IN EMAIL -->
+        <div class="row">
+            <div class="col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-5">
+                <%= f.input :email %>
+            </div>
+        </div>
+                <!-- USER PASSWORD -->
+        <div class="row">
+            <div class="col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-5">
+                <%= f.input :password %>
+            </div>
+        </div>
+                 <!-- LOGIN BUTTON -->
+        <div class="row">
+            <div id='button' class="col-sm-offset-4 col-sm-">
+                <%= f.button :submit %>
+            </div>
+        </div>
+                <!-- NEW USER SIGNUP -->
+        <div class="row">
+            <div id='link' class="col-sm-offset-4 col-sm-">
+                <%= link_to 'Sign Up', signup_path %>
+                    <% end %>
+            </div>
+        </div>
+    </div>
