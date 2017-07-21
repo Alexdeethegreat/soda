@@ -4,9 +4,8 @@ class ArtistsController < ApplicationController
 	before_action :set_artist, only: [:show, :edit, :update, :destroy]
 	
 	def index
-		puts "HIIII"
-		# @artists = Artist.all 
-		songs = Song.all
+
+		songs = Song.where(user_id: @current_user[:id])
 		found = false
 		artists = []
 		songs.each do |song|
@@ -14,9 +13,24 @@ class ArtistsController < ApplicationController
 				if artist == song[:artist_id]
 					found = true
 				end
-			artists.push(song[:artist_id])
+			end
+			if !found
+				artists.push(song[:artist_id])
+			end
+			found = false
 		end
-		puts artists
+
+		@artists = []
+		artists.each do |artist|
+			@artists.push(Artist.find(artist))
+		end
+
+		@artists.each do |artist|
+			artist.songs = Song.where(artist_id: artist[:id])
+			puts artist[:name]
+			puts artist.songs
+		end
+
 	end
 
 	def show
