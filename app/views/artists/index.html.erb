@@ -1,0 +1,14 @@
+<h1>Artists</h1>
+<div>
+  <% @artists.each do |artist| %>
+    <div class="artist-info info">
+      <h2 class="card-title"><%= artist[:name] %></h2>
+      <% artist.songs.each do |song| %>
+      	<h3><%= song[:name] %></h3>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
+
+
