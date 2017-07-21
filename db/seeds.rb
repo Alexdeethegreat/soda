@@ -11,6 +11,7 @@ Artist.delete_all
 User.delete_all
 
 
+
 a = Artist.new
 s = Song.new 
 u = User.new
