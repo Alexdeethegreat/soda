@@ -10,9 +10,10 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
- *= require_self
+
+
  */
+
 body{
 	background:url(soda.jpeg) no-repeat left top;
 	background-size: fixed;
@@ -45,7 +46,7 @@ body{
 	position: relative;
 	display: inline-block;
 	padding: .5%;
-	left: 78em;
+	left: 72em;
 	bottom: 2.5em;
 	border: thin solid grey;
 	border-radius: 5px;
@@ -58,7 +59,7 @@ body{
 	position: relative;
 	display: inline-block;
 	top: 5em;
-	left: 70%;
+	left: 63%;
 	font-size: 3em;
 }
 
@@ -142,8 +143,6 @@ body{
 }
 
 /********** USER PROFILE ***********/
-
-
 
 #user{
 	display: inline-block;
