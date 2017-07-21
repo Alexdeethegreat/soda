@@ -1,12 +1,27 @@
 class ArtistsController < ApplicationController
 	before_action :require_user 
-	before_action :logged_in, only: [:index, :show, :new, :update]
+	before_action :require_current_user, only: [:show, :new, :update]
 	before_action :set_artist, only: [:show, :edit, :update, :destroy]
+	
 	def index
-		@artists = Artist.all 
+		puts "HIIII"
+		# @artists = Artist.all 
+		songs = Song.all
+		found = false
+		artists = []
+		songs.each do |song|
+			artists.each do |artist|
+				if artist == song[:artist_id]
+					found = true
+				end
+			artists.push(song[:artist_id])
+		end
+		puts artists
 	end
+
 	def show
 	end
+
 	def new
 		@artist = Artist.new 
 	end
