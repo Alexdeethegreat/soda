@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root :to => "sessions#new"
 
   resources :users, only: [:create, :show, :edit, :update]
-  resources :songs, only: [:create, :index, :new, :edit, :update, :show]
+  resources :songs, only: [:create, :index, :new, :edit, :update]
   resources :artists
 
   get "songs/search", to: "songs#search", as: :search
