@@ -1,0 +1,10 @@
+<%= render  'shared/header' %>
+<%= simple_form_for @user do |f| %>
+  <%= f.input :email %>
+  <%= f.input :password,placeholder: 'Please type your password' %>
+  <%= f.input :password_confirmation %>
+  <%= f.input :genre %>
+  <%= f.input :location  %>
+  <%= f.input :image_url  %>
+  <%= f.button :submit %>
+<% end %>

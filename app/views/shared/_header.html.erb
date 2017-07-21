@@ -1,0 +1,7 @@
+<nav>
+    <!-- NAVIGATION LINKS -->
+    <h1>Song Of the Day App (SODA!)</h1>
+        <%= link_to("Profile", "/users/#{@current_user[:id]}") %> 
+   	  <%= link_to("Add Song", search_path) %>
+      <%= link_to("logout", logout_path, method: "delete") %> 
+    </nav>
