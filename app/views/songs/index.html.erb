@@ -13,6 +13,7 @@
     <div>
         <%= link_to(song.name, song) %>
         <h4><%= link_to("By: #{song.artist.name}", song.artist) %></h4>
+        <%= button_to("Vote", song, :method => 'show') %>
     </div>
     <% end %>
 </div>

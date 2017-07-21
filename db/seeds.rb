@@ -13,19 +13,25 @@ User.delete_all
 
 
 a = Artist.new
+b = Artist.new
+c = Song.new
 s = Song.new 
 u = User.new
 n = Song.new
 v = Song.new
 
 a.assign_attributes(name: "Master P")
+b.assign_attributes(name: "Linkin Park")
 a.save
+b.save
 
 u.assign_attributes(name: "andrew", email: "agottlie@gmail.com")
 u.save
 
+
 s.assign_attributes(name: "Make em say uhhh", artist: a, votes: 10, user: u, spotify_id: "ABC")
 s.save
+c.save
 
 v.assign_attributes(name: "Make em say uhhh", artist: a, votes: 10, user: u, spotify_id: "ABC")
 v.save

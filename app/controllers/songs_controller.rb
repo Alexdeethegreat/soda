@@ -5,7 +5,7 @@ class SongsController < ApplicationController
 	before_action :set_song, only: [:show, :edit, :update, :destroy]
 	
 	def index
-		@songs = Song.all
+		@songs = Song.where(user_id: @current_user[:id])
 		@artist = Artist.name
 	end
 

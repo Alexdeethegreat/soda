@@ -1,4 +1,4 @@
-# README - messenger and song of the day_active job branch
+# README - SODA Vote Button and Function
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
