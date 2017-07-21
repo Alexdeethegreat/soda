@@ -1,0 +1,18 @@
+<h1 class="page-title img-line second-bg"> Welcome to favorite Musicans!</h1>
+<div class="show"> 
+	<div class="artist-info info"> 
+		<div class="card-title">
+		<h2><%= @artist.name %></h2>
+		<p><%= @artist.song.name %> </p>
+		</div>
+		<%= render "", {songs: @artist.songs} %>
+		<div class="card-footer"> 
+		<p> You should add another song!
+			<%= link_to("Add one now!", new_song_path) %></p>
+		<div class="footer-buttons"> 
+			<%=link_to("✎", edit_artist_path(@artist), :class => "pop-button") %>
+			<%= button_to("✕", @artist, method: :delete, :class=>"pop-button") %>
+			</div>
+		</div>
+	</div>
+</div>
