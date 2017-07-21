@@ -15,7 +15,17 @@ class SongsController < ApplicationController
 	end
 	def create
 		puts params[:add][:name]
-		@artist = Artist.new(name: "#{params[:add][:artist]}")
+		found = false
+		artists = Artist.all
+		artists.each do |artist|
+			if artist[:name] == params[:add][:artist]
+				@artist = artist
+				found = true
+			end
+		end
+		if !found
+			@artist = Artist.new(name: "#{params[:add][:artist]}")
+		end
 		@song = Song.new(name: "#{params[:add][:name]}", votes: 0, user: @current_user, artist: @artist)
 		puts @song
 		if @song.valid?
