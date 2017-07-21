@@ -1,34 +1,26 @@
-<div id='user_info'>
-<%= @user.name %>
-</div>
-
-<div id='day'>Song of the Day</div>
-<!-- song of the day controller -->
-
-<div id='profile'>
-
-	<div id='artist'>Favorite Artist</div>
-<%= link_to ("Favorite Artist")%>
-	<div id='song'>Favorite Song</div>
-		<%= link_to ("Favorite Artist")%>
-</div>
-
 <%= render  'shared/header' %>
-    <div id='user_info'>
+   <div id='user' class='d-flex align-items-start flex-column'>
+        <div id='user_info'>
         <%= @user.name %>
-    </div>
-    <div id='day'>Song of the Day</div>
-    <!-- song of the day controller -->
-    <div id='profile'>
-        <div id='artist'>
-            <%= link_to("Favorite Artist", artist_path)%>
-        </div>
-        <div id='song'>
-            <%= link_to("Favorite Song", song_path)%>
-        </div>
-    </div>
 
-    <div>
-    <%= link_to("Edit Profile", edit_user_path)%>
-    </div>
 
+        </div>
+
+        <!-- SONG OF THE DAY, MIDDLE DIV -->
+        <div id='day' class="mr-p-2">
+            Song of the Day
+            <!-- song of the day controller -->
+        </div>
+        <!-- FAVORITE ARTIST -->
+        <div class="mb-auto p-2">
+            <%= link_to("Favorite Artist", "/artists")%>
+        </div>
+        <!-- FAVORITE SONG -->
+        <div class="p-2">
+            <%= link_to("Favorite Song", "/songs")%>
+
+        </div>
+
+     <span> <%= link_to("Edit Profile", edit_user_path)%> </span>
+
+    </div>
