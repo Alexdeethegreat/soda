@@ -3,6 +3,7 @@ class ArtistsController < ApplicationController
 	before_action :require_current_user, only: [:show, :new, :update]
 	before_action :set_artist, only: [:show, :edit, :update, :destroy]
 	
+
 	def index
 
 		songs = Song.where(user_id: @current_user[:id])
@@ -46,7 +47,7 @@ class ArtistsController < ApplicationController
 			redirect_to @artist
 		else 
 			flash[:artist] = @artist.errors.messages
-			redirect_back fallback_location: new_artist_parth
+			redirect_back fallback_location: new_artist_path
 		end 
 	end
 	def edit
