@@ -14,7 +14,4 @@
 //= require turbolinks
 //= require_tree .
 
-$(() => {
 
-	console.log("js connected");
-});
