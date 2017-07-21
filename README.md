@@ -1,4 +1,4 @@
-# README - SODA Vote Button and Function
+# README - SODA Destroy btn and vote function
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
