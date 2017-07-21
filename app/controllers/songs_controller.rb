@@ -29,7 +29,7 @@ class SongsController < ApplicationController
 		if !found
 			@artist = Artist.new(name: "#{params[:add][:artist]}")
 		end
-		@song = Song.new(name: "#{params[:add][:name]}", votes: 0, user: @current_user, artist: @artist)
+		@song = Song.new(name: "#{params[:add][:name]}", votes: 0, user: @current_user, artist: @artist, spotify_id: "#{params[:add][:spotify_id]}")
 		puts @song
 		if @song.valid?
 			puts "SUCCESS"
@@ -80,9 +80,14 @@ class SongsController < ApplicationController
 				"https://accounts.spotify.com/api/token",
 				headers: {
 					Authorization: "Basic " + ENV['SPOTIFY_API_TOKEN'],
-					"Content-Type": "application/x-www-form-urlencoded"
+				},
+				body: {
+					grant_type: "client_credentials"
 				}
 			)["access_token"]
+
+			puts "SPOTIFY TOKEN"
+			puts spotify_token
 			url = "https://api.spotify.com/v1/search?q=" + artist + song + "&type=track"
 
 
@@ -91,7 +96,7 @@ class SongsController < ApplicationController
 				url,
 				headers: {
 					Authorization: "Bearer " + spotify_token
-				},
+				}
 
 			)
 
@@ -104,7 +109,7 @@ class SongsController < ApplicationController
 	private
 	
 	def song_params
-		params.require(:song).permit(:name, :genre, :votes)
+		params.require(:song).permit(:name, :genre, :votes, :spotify_id)
 	end
 	def set_song 
 	@song = Song.find(params[:id])
