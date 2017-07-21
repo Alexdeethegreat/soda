@@ -65,9 +65,17 @@ class SongsController < ApplicationController
 				artist = ""
 			end
 
-			spotify_token = ENV['SPOTIFY_API_TOKEN']
+			spotify_token = HTTParty.post(
+				"https://accounts.spotify.com/api/token",
+				headers: {
+					Authorization: "Basic " + ENV['SPOTIFY_API_TOKEN'],
+					"Content-Type": "application/x-www-form-urlencoded"
+				}
+			)["access_token"]
 			url = "https://api.spotify.com/v1/search?q=" + artist + song + "&type=track"
-			puts url
+
+
+
 			response = HTTParty.get(
 				url,
 				headers: {
