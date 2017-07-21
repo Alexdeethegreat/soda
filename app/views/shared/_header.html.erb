@@ -1,7 +1,16 @@
-<nav>
+<div class="d-flex justify-content-end">
     <!-- NAVIGATION LINKS -->
     <h1>Song Of the Day App (SODA!)</h1>
-        <%= link_to("Profile", "/users/#{@current_user[:id]}") %> 
-   	  <%= link_to("Add Song", search_path) %>
-      <%= link_to("logout", logout_path, method: "delete") %> 
-    </nav>
+    <!-- PROFILE LINK -->
+    <div id='profile' class="mr-auto p-2">
+        <%= link_to("Profile", "/users/#{@current_user[:id]}") %>
+    </div>
+    <!-- SONG SEARCH -->
+    <div id='search' class="mr-auto p-2">
+        <%= link_to("Add Song", search_path) %>
+    </div>
+    <!-- LOGOUT -->
+    <div ID='logout' class="mr-auto p-2">
+        <%= link_to("logout", logout_path, method: "delete") %>
+    </div>
+</div>
