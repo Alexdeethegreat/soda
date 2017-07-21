@@ -14,7 +14,9 @@
  *= require_self
  */
 body{
-	background-color: lightblue;
+	background:url(soda.jpeg) no-repeat left top;
+	background-size: fixed;
+	font-family: 'Lobster', cursive;
 }
 
 
@@ -28,7 +30,7 @@ body{
 	position: relative;
 	display: inline-block;
 	top: 5em;
-	left: 45%;
+	left: 60%;
 	font-size: 3em;
 }
 
@@ -42,10 +44,11 @@ body{
 	position: relative;
 	display: inline-block;
 	padding: 1%;
-	left: 55em;
+	left: 70em;
 	bottom: 2.5em;
 	font-size: 1em;
-	border: solid black;
+	border: solid grey;
+	border-radius: 25px;
 }
 
 
@@ -64,18 +67,28 @@ body{
 }
 
 /******** NAV BAR **********/
+.navbar{
+	background-color: transparent;
+	color: black;
+	border-bottom: grey solid;
+}
+
+#title{
+	margin: 0 auto;
+	font-size: 2.8em;
+}
 
 #profile{
 	position: relative;
 	float:right;
-	font-size: 2em;
+	font-size: 1.5em;
 	padding: .2em;
 }
 
 #search{
 	position: relative;
 	float:right;
-	font-size: 2em;
+	font-size: 1.5em;
 	padding: .2em;
 
 }
@@ -83,11 +96,15 @@ body{
 #logout{
 	position: relative;
 	float:right;
-	font-size: 2em;
+	font-size: 1.5em;
 	padding: .2em;
 }
 
 /******** EDIT PROFILE **********/
+#custom{
+	top: 2em;
+}
+
 #update_email{
 	position: relative;
 	text-align: center;
@@ -121,28 +138,27 @@ body{
 #update{
 	position: relative;
 	text-align: center;
-	left: 40em;
+	left: 60em;
 }
 
 /********** USER PROFILE ***********/
 
+#user{
+	display: inline-block;
+	background-color: red;
+}
 
 
+/********* SONG SEARCH ************/
 
+#search_song{
+	text-align: center;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+#music{
+	position: relative;
+	left: 10em;
+}
 
 
 

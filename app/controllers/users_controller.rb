@@ -9,12 +9,38 @@ class UsersController < ApplicationController
 
     def profile
       # BlastSodJob.set(wait: 1.minute).perform_later 
+      # if day != current
+
       @user = @require_current_user
       render "users#show"
     end
 
   	def show
     	@user = User.find(params[:id])
+      songs = Song.all
+      votes = []
+      found = false
+      songs.each do |song|
+        votes.each do |vote|
+          if votes.length>0 && vote[:spotify_id] == song[:spotify_id]
+            found = true
+            vote[:votes] = vote[:votes] + song[:votes]
+          end
+        end
+        if !found
+          votes.push(song)
+        end
+        found = false
+      end
+
+      puts votes
+
+      sorted = votes.sort_by { |k| k[:votes] }
+
+      @song_of_the_day = sorted.last
+      puts @song_of_the_day[:artist_id]
+      @artist = Artist.where(id: @song_of_the_day[:artist_id])[0]
+
   	end
   
     def edit
