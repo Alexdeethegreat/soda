@@ -1,8 +1,8 @@
 <%= render  'shared/header' %>
-   <div id='user' class='d-flex align-items-start flex-column'>
-        <div id='user_info'>
+   
+                     <!-- SONG OF THE DAY, MIDDLE DIV -->
+   <div id='user' class='container'>
         <%= @user.name %>
-
 
         </div>
 
@@ -10,7 +10,8 @@
         <div id='day' class="mr-p-2">
             Song of the Day
             <!-- song of the day controller -->
-        </div>
+            </div>
+
         <!-- FAVORITE ARTIST -->
         <div class="mb-auto p-2">
             <%= link_to("Favorite Artist", "/artists")%>
@@ -20,7 +21,6 @@
             <%= link_to("Favorite Song", "/songs")%>
 
         </div>
-
-     <span> <%= link_to("Edit Profile", edit_user_path)%> </span>
+            <span id='custom_prof'> <%= link_to("Edit Profile", edit_user_path)%> </span>
 
     </div>
