@@ -1,17 +1,17 @@
 <%= render  'shared/header' %>
 
-                     <!-- SONG OF THE DAY, MIDDLE DIV -->
-   <div class='row justify-content-between'>
+           <!-- SONG OF THE DAY, MIDDLE DIV -->
+   <div class='align-self-center'>
        <p id='user'> <%= @user.name %> username</p>
 
         <!-- SONG OF THE DAY, MIDDLE DIV -->
-        <div id='day' class='col-xs-8 col-sm-offset-3 col-md-offset-4 col-md-7 col-lg-offset-4 col-lg-5'>
+        <div id='day'>
             Song of the Day
             <!-- song of the days controller -->
         </div>
 
         <!-- FAVORITE ARTIST -->
-        <div class='align-self-center'>
+        <div class='col-xs-8 col-sm-offset-3 col-md-offset-4 col-md-7 col-lg-offset-4 col-lg-5'>
             <%= link_to("Favorite Artist", "/artists")%>
         </div>
           <!-- FAVORITE SONG -->
