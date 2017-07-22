@@ -9,32 +9,30 @@
 Song.delete_all 
 Artist.delete_all
 User.delete_all
+Currentdate.delete_all
 
 
 
 a = Artist.new
 b = Artist.new
-c = Song.new
 s = Song.new 
 u = User.new
 n = Song.new
-v = Song.new
+d = Currentdate.new
 
 a.assign_attributes(name: "Master P")
 b.assign_attributes(name: "Linkin Park")
 a.save
 b.save
 
-u.assign_attributes(name: "andrew", email: "agottlie@gmail.com")
+u.assign_attributes(name: "andrew", email: "agottlie@gmail.com", password: "hi")
 u.save
 
-
-s.assign_attributes(name: "Make em say uhhh", artist: a, votes: 10, user: u, spotify_id: "ABC")
+s.assign_attributes(name: "Make 'Em Say Ugh", artist: a, votes: 0, user: u, spotify_id: "0l3wp8iEtN8rgag9eTeorW")
 s.save
-c.save
 
-v.assign_attributes(name: "Make em say uhhh", artist: a, votes: 10, user: u, spotify_id: "ABC")
-v.save
-
-n.assign_attributes(name: "New Song", artist: a, votes: 1, user: u)
+n.assign_attributes(name: "New Song", artist: a, votes: 0, user: u)
 n.save
+
+d.assign_attributes(date: "#{Time.now.strftime("%d/%m/%Y")}", song: "0l3wp8iEtN8rgag9eTeorW")
+d.save
