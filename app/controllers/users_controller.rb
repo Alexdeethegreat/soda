@@ -9,40 +9,39 @@ class UsersController < ApplicationController
   	end
 
     def profile
-      # BlastSodJob.set(wait: 1.minute).perform_later 
-      # if day != current
-
       @user = @require_current_user
       render "users#show"
     end
 
   	def show
-    	@user = User.find(params[:id])
-      songs = Song.all
-      votes = []
-      found = false
-      songs.each do |song|
-        votes.each do |vote|
-          if votes.length>0 && vote[:spotify_id] == song[:spotify_id]
-            found = true
-            vote[:votes] = vote[:votes] + song[:votes]
-          end
-        end
-        if !found
-          votes.push(song)
-        end
+      @user = User.find(params[:id])
+      if Time.now.strftime("%d/%m/%Y") != Currentdate.last[:date]
+        songs = Song.all
+        votes = []
         found = false
-      end
+        songs.each do |song|
+          votes.each do |vote|
+            if votes.length>0 && vote[:spotify_id] == song[:spotify_id]
+              found = true
+              vote[:votes] = vote[:votes] + song[:votes]
+            end
+          end
+          if !found
+            votes.push(song)
+          end
+          found = false
+          song.update(votes: 0)
+        end
 
-      puts votes
+        sorted = votes.sort_by { |k| k[:votes] }
 
-      sorted = votes.sort_by { |k| k[:votes] }
-
-      @song_of_the_day = sorted.last
-      puts @song_of_the_day[:artist_id]
+        @song_of_the_day = sorted.last
+        Currentdate.last.update(date: "#{Time.now.strftime("%d/%m/%Y")}", song: "#{@song_of_the_day[:spotify_id]}")
+      else
+        @song_of_the_day = Song.where(spotify_id: Currentdate.last[:song])[0]
+    	end
       @artist = Artist.where(id: @song_of_the_day[:artist_id])[0]
-
-  	end
+    end
   
     def edit
       @user = User.find(params[:id])
