@@ -1,7 +1,7 @@
 class SongsController < ApplicationController
 	include HTTParty
 	before_action :require_user
-  	before_action :require_current_user, only: [:show, :update]
+  	before_action :require_current_user, only: [:show, :update, :destory]
 	before_action :set_song, only: [:show, :edit, :update, :destroy]
 	
 	def index
