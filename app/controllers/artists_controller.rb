@@ -28,8 +28,6 @@ class ArtistsController < ApplicationController
 
 		@artists.each do |artist|
 			artist.songs = Song.where(artist_id: artist[:id])
-			puts artist[:name]
-			puts artist.songs
 		end
 
 	end
