@@ -11,10 +11,14 @@
         <%= song[:name] %>
         <h4>By: <%= song.artist.name %></h4>
         <h5><%= song[:votes] %></h5>
-        <%= form_for(:update, url: "songs/#{song[:id]}", method: "put", :authenticity_token => false) do |f|%>
+        <%= form_for(:update, url: "songs/#{song[:id]}", method: "put", :authenticity_token => false) do |f| %>
         	<%= f.hidden_field :votes, { :value => song["votes"] + 1} %>
         	<%= f.submit("Vote") %>
         <% end %>
+        <%= form_for(:destroy, url: "songs/#{song[:id]}", method: "delete", :authenticity_token => false) do |f| %>
+            <%= f.submit("Delete") %>
+        <% end %>
+
     </div>
     <% end %>
 </div>

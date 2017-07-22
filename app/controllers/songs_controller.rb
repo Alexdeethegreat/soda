@@ -57,11 +57,12 @@ class SongsController < ApplicationController
 	end
 
 	def destroy 
+		@user = @current_user
 		if @song.destroy 
-			redirect_to songs_path
+			redirect_to "/songs/"
 		else
 			flash[:error] = "Could not delete song."
-			redirect_back fallback_location: @song 
+			redirect_back fallback_location: edit_song_path 
 		end
 	end
 
