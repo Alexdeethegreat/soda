@@ -18,6 +18,7 @@
         <%= form_for(:destroy, url: "songs/#{song[:id]}", method: "delete", :authenticity_token => false) do |f| %>
             <%= f.submit("Delete") %>
         <% end %>
+
     </div>
     <% end %>
 </div>
