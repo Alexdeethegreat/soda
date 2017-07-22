@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+    protect_from_forgery with: :exception
     before_action :require_user, only: [:show, :index, :update, :edit]
   	before_action :require_current_user, only: [:show, :edit, :update]
 
