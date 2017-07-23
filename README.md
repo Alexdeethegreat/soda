@@ -79,7 +79,6 @@ Step 5) Vote!
 Let your voice be heard by voting for your favorite song! 
 ```
 At the end of each day, the song with the most votes will be shared to all users of our platform!
-```
 
 ## Heroku deployment
 
