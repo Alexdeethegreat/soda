@@ -1,21 +1,21 @@
 <%= render  'shared/header' %>
 
-<h1>Welcome to your favorite songs!</h1>
+<div class="songs_head">
 <h1>Favorite Songs</h1>
+</div>
 
-<div class="nav-links"> </div>
-<div>
+<div class="nav-links"> 
     <% @songs.each do |song| %>
     <div>
-        <%= song[:name] %>
+        <h3><%= song[:name] %></h3>
         <h4>By: <%= song.artist.name %></h4>
         <h5><%= song[:votes] %></h5>
         <%= form_for(:update, url: "songs/#{song[:id]}", method: "put", :authenticity_token => false) do |f| %>
         	<%= f.hidden_field :votes, { :value => song["votes"] + 1} %>
-        	<%= f.submit("Vote") %>
+        	<span class="vote"><%= f.submit("Vote") %></span>
         <% end %>
         <%= form_for(:destroy, url: "songs/#{song[:id]}", method: "delete", :authenticity_token => false) do |f| %>
-            <%= f.submit("Delete") %>
+            <span class="delete"><%= f.submit("Delete") %></span>
         <% end %>
 
     </div>

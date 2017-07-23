@@ -14,13 +14,20 @@
  *= require_self
  */
 body{
-	background: url('back.jpg') no-repeat top center;
-	background-size: cover;
-	font-family: 'Lobster', cursive;
+	/*background: url('back.jpg') no-repeat top center;
+	background-size: cover;*/
+	font-family: 'Quicksand', sans-serif;
+	background-color: dimgrey;
 }
 
 a{
-	color: black;
+	color: white;
+	text-decoration: none;
+}
+
+a:hover {
+	color: white;
+	text-decoration: none;
 }
 
 /***** LOGIN PAGE *******/
@@ -54,6 +61,12 @@ a{
 	border-radius: 5px;
 }
 
+.bkg_image {
+	position: fixed;
+	max-width: 800px;
+
+}
+
 
 /************ SIGN UP ***********/
 
@@ -72,13 +85,14 @@ a{
 /******** NAV BAR **********/
 .navbar{
 	background-color: transparent;
-	color: black;
+	color: white;
 	border-bottom: grey solid;
 }
 
 #title{
 	margin: 0 auto;
 	font-size: 2.8em;
+	color: white;
 }
 
 #profile{
@@ -86,6 +100,7 @@ a{
 	float:right;
 	font-size: 1.5em;
 	padding: .2em;
+	color: white;
 }
 
 #search{
@@ -93,6 +108,7 @@ a{
 	float:right;
 	font-size: 1.5em;
 	padding: .2em;
+	color: white;
 
 }
 
@@ -101,6 +117,7 @@ a{
 	float:right;
 	font-size: 1.5em;
 	padding: .2em;
+	color: white;
 }
 
 /******** EDIT PROFILE **********/
@@ -177,6 +194,9 @@ a{
 #day{
 	position: relative;
 	left: 40em;
+	background-color: white;
+	width: 250px;
+	height: 250px;
 }
 
 #artist{
@@ -194,21 +214,71 @@ a{
 	position: relative;
 	left: 15em;
 	bottom: 13em;
+	font-size: 15px;
 }
+
+.sod {
+	color: black;
+	position: relative;
+	font-size: 30px;
+	margin: 0 auto;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	left: 20px;
+}
+
+/********* FAVORITES ************/
+
+.artist_h1 {
+	color: white;
+	position: relative;
+	float: right;
+	right: 200px;
+}
+
+.songs_head {
+	color: white;
+	position: relative;
+	float: right;
+	right: 200px;
+}
+
+.nav-links {
+	color: white;
+	position: relative;
+	float: right;
+	top: 250px;
+}
+
+.vote {
+	color: black;
+}
+
+.delete {
+	color: black;
+}
+
 
 /********* SONG SEARCH ************/
 
 #search_song{
 	position: relative;
 	text-align: center;
-	top: 5em;
+	top: 5.7em;
 	right: 3em;
+	color: white;
 	
 }
 
 #music{
 	position: relative;
 	right: 25em;
+	color: white;
+}
+
+.search_btn {
+	color: black;
 }
 
 /******* SONG SEARCH RESULT ******/

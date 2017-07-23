@@ -1,9 +1,11 @@
 <%= render  'shared/header' %>
 
            <!-- SONG OF THE DAY, MIDDLE DIV -->
+       <div class= "sod">
        <p id='user'>Hey there  <%= @current_user[:name] %> !</p><br>
        <p id='my_genre'> Genre: <%= @user.genre %></p><br>
        <p id='my_location'>Location: <%= @user.location %></p>
+       </div>
           
           <!-- song of the days controller -->
         <div id='day'>
@@ -13,14 +15,18 @@
         </div>
 
         <!-- FAVORITE ARTIST -->
+        <div class= "fav">
         <div id='artist'>
             <%= link_to("Favorite Artists", "/artists")%>
         </div>
+
+
 
           <!-- FAVORITE SONG -->
         <div id='song'>
          <%= link_to("Favorite Songs", "/songs")%>
          </div>
+         </div>
 
-        <span id='custom_prof'> <%= link_to("Edit Profile", edit_user_path)%> </span>
+        <div class="sod"><span id='custom_prof'> <%= link_to("Edit Profile", edit_user_path)%> </span></div>
     </div>
