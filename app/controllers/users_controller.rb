@@ -10,10 +10,11 @@ class UsersController < ApplicationController
 
     def profile
       @user = @require_current_user
-      render "users#show"
+      render "users#show" 
     end
 
   	def show
+      @songs = Song.name
       @user = User.find(params[:id])
       if Time.now.strftime("%d/%m/%Y") != Currentdate.last[:date]
         songs = Song.all
@@ -78,7 +79,7 @@ class UsersController < ApplicationController
   	private
 
    	def user_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation, :genre, :image_url, :location)
+      params.require(:user).permit(:name, :email, :password, :password_confirmation, :genre, :image_url, :location, :id)
    	end
 
 end
