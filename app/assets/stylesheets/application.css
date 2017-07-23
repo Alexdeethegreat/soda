@@ -14,11 +14,14 @@
  *= require_self
  */
 body{
-	background:url(soda.jpeg) no-repeat left top;
-	background-size: fixed;
+	background:url(back.jpeg) no-repeat top center;
+	background-size: cover;
 	font-family: 'Lobster', cursive;
 }
 
+a{
+	color: black;
+}
 
 /***** LOGIN PAGE *******/
 .container{
@@ -102,7 +105,9 @@ body{
 
 /******** EDIT PROFILE **********/
 #custom{
-	top: 2em;
+	top: 1em;
+	right: 40em;
+
 }
 
 #name{
@@ -158,35 +163,36 @@ body{
 #my_genre{
 	position: relative;
 	display: inline-block;
-	font-size: 1em;
+	font-size: 2em;
 	left: 5em;
 }
 
 #my_location{
 	position: relative;
 	display: inline-block;
-	font-size: 1em;
+	font-size: 2em;
 	left: 5em;
 }
 
 #day{
 	position: relative;
-	left: 60em;
+	left: 40em;
 }
 
 #artist{
 	position: relative;
-	left: 80%;
+	left: 50%;
+	top: 1em;
 }
 
 #song{
 	position: relative;
-	left: 80%;
+	left: 30%;
 }
 
 #custom_prof{
 	position: relative;
-	left: 5em;
+	left: 15em;
 	bottom: 13em;
 }
 
@@ -196,12 +202,13 @@ body{
 	position: relative;
 	text-align: center;
 	top: 5em;
-	left: 10em;
+	right: 3em;
+	
 }
 
 #music{
 	position: relative;
-	left: 10em;
+	right: 25em;
 }
 
 /******* SONG SEARCH RESULT ******/
