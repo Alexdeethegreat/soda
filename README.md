@@ -1,4 +1,4 @@
-# README - 7-22 SODA Vote Button and Function
+# README - 7-23 Soda_Peter-Check
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
