@@ -14,7 +14,7 @@
  *= require_self
  */
 body{
-	background:url(back.jpeg) no-repeat top center;
+	background: url('back.jpg') no-repeat top center;
 	background-size: cover;
 	font-family: 'Lobster', cursive;
 }
