@@ -105,6 +105,11 @@ body{
 	top: 2em;
 }
 
+#name{
+	position: relative;
+	text-align: center;
+}
+
 #update_email{
 	position: relative;
 	text-align: center;
@@ -143,18 +148,53 @@ body{
 
 /********** USER PROFILE ***********/
 
-
-
 #user{
+	position: relative;
 	display: inline-block;
 	background-color: red;
+	left: 5em;
 }
 
+#my_genre{
+	position: relative;
+	display: inline-block;
+	left: 5em;
+}
+
+#my_location{
+	position: relative;
+	display: inline-block;
+	left: 5em;
+}
+
+#day{
+	position: relative;
+	left: 60em;
+}
+
+#artist{
+	position: relative;
+	left: 80%;
+}
+
+#song{
+	position: relative;
+	left: 80%;
+}
+
+#custom_prof{
+	position: relative;
+	left: 5em;
+	bottom: 13em;
+}
 
 /********* SONG SEARCH ************/
 
 #search_song{
+	position: relative;
 	text-align: center;
+	top: 5em;
+	left: 10em;
 }
 
 #music{
@@ -162,11 +202,109 @@ body{
 	left: 10em;
 }
 
+/******* SONG SEARCH RESULT ******/
+
+#head_result{
+	position: relative;
+	display: inline-block;
+	left:27em;
+	top:3em;
+}
+
+.result{
+	position: relative;
+	left: 60em;
+	top: 10em;
+	left: 60em;
+	top: 10em;
+}
+
+.results{
+	position: relative;
+	overflow: scroll;
+	top: 12em;
+	left: 65em;
+
+
+}
+/********* MEDIA QUERY *************/
+
+@media screen and (min-width: 360px) {
+#head{
+	position: relative;
+	display: inline-block;
+	top: 5em;
+	left: 60%;
+	font-size: 3em;
+}
+
+
+#button{
+	position: relative;
+
+	
+}
+
+#link{
+	position: relative;
+	display: inline-block;
+	padding: .5%;
+
+	bottom: 2.5em;
+	border-radius: 5px;
+}
+
+}
+
+
+/* Small devices (landscape phones, 576px and up)*/
+@media (max-width: 575px) { 
+#head{
+	position: relative;
+	display: inline-block;
+	top: 5em;
+	left: 60%;
+	font-size: 3em;
+}
+
+
+#button{
+	position: relative;
+
+	
+}
+
+#link{
+	position: relative;
+	display: inline-block;
+	padding: .5%;
+	left: 44em;
+	bottom: 2.5em;
+
+	border-radius: 5px;
+}
+
+
+}
+
+/* Medium devices (tablets, 768px and up)*/
+@media (max-width: 768px) { 
+
+
+ }
+
+/* Large devices (desktops, 992px and up)*/
+@media (max-width: 992px) { 
+
+
+ }
+
+/* Extra large devices (large desktops, 1200px and up)*/
+@media (max-width: 1200px) { 
 
 
 
-
-
+ }
 
 
 
