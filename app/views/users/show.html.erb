@@ -1,24 +1,26 @@
 <%= render  'shared/header' %>
 
            <!-- SONG OF THE DAY, MIDDLE DIV -->
-   <div class='align-self-center'>
-       <p id='user'> <%= @user.name %> username</p>
-
-        <!-- SONG OF THE DAY, MIDDLE DIV -->
+       <p id='user'>Hey there  <%= @current_user[:name] %> !</p><br>
+       <p id='my_genre'> Genre: <%= @user.genre %></p><br>
+       <p id='my_location'>Location: <%= @user.location %></p>
+          
+          <!-- song of the days controller -->
         <div id='day'>
             Song of the Day
-
             <h1><%= @song_of_the_day[:name] %></h1>
             <h2>by: <%= @artist[:name] %></h2>
-            <!-- song of the days controller -->
-
         </div>
 
         <!-- FAVORITE ARTIST -->
-        <div class='col-xs-8 col-sm-offset-3 col-md-offset-4 col-md-7 col-lg-offset-4 col-lg-5'>
-            <%= link_to("Favorite Artist", "/artists")%>
+        <div id='artist'>
+            <%= link_to("Favorite Artists", "/artists")%>
         </div>
+
           <!-- FAVORITE SONG -->
-        <div> <%= link_to("Favorite Song", "/songs")%></div>
+        <div id='song'>
+         <%= link_to("Favorite Songs", "/songs")%>
+         </div>
+
         <span id='custom_prof'> <%= link_to("Edit Profile", edit_user_path)%> </span>
     </div>

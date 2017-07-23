@@ -1,11 +1,11 @@
 class SongsController < ApplicationController
 	include HTTParty
 	before_action :require_user
-  	before_action :require_current_user, only: [:show, :update]
+  	before_action :require_current_user, only: [:show]
 	before_action :set_song, only: [:show, :edit, :update, :destroy]
 	
 	def index
-		@songs = Song.where(user_id: @current_user[:id])
+		@songs = Song.where(user_id: @current_user[:id]).order(:id)
 		@artist = Artist.name
 	end
 
@@ -16,6 +16,7 @@ class SongsController < ApplicationController
 		@song = Song.new
 		@artist = Artist.all
 	end
+
 	def create
 		puts params[:add][:name]
 		found = false
@@ -30,22 +31,25 @@ class SongsController < ApplicationController
 			@artist = Artist.new(name: "#{params[:add][:artist]}")
 		end
 		@song = Song.new(name: "#{params[:add][:name]}", votes: 0, user: @current_user, artist: @artist, spotify_id: "#{params[:add][:spotify_id]}")
-		puts @song
+
 		if @song.valid?
-			puts "SUCCESS"
 			@song.save
 			redirect_to "/users/#{@current_user[:id]}"
 		else 
-			puts "FAIL"
 			flash[:song] = @song.errors.messages
 			redirect_back fallback_location: new_song_path
 		end
 	end
+
 	def edit
+
 	end
+
 	def update
-		if @song.update(song_params)
-			redirect_to @song 
+		@user = @current_user
+		puts "HELLO"
+		if @song.update(votes: "#{params[:update][:votes]}")
+			redirect_to "/songs" 
 		else 
 			flash[:song] = @song.errors.messages
 			redirect_back fallback_location: edit_song_path
@@ -53,11 +57,12 @@ class SongsController < ApplicationController
 	end
 
 	def destroy 
+		@user = @current_user
 		if @song.destroy 
-			redirect_to songs_path
+			redirect_to "/songs"
 		else
 			flash[:error] = "Could not delete song."
-			redirect_back fallback_location: @song 
+			redirect_back fallback_location: edit_song_path 
 		end
 	end
 
@@ -112,7 +117,7 @@ class SongsController < ApplicationController
 		params.require(:song).permit(:name, :genre, :votes, :spotify_id)
 	end
 	def set_song 
-	@song = Song.find(params[:id])
+		@song = Song.find(params[:id])
 	end
 
 end

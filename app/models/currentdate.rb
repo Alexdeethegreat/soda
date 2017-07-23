@@ -1,0 +1,2 @@
+class Currentdate < ApplicationRecord
+end
