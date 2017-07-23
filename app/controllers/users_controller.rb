@@ -14,7 +14,6 @@ class UsersController < ApplicationController
     end
 
   	def show
-      @songs = Song.name
       @user = User.find(params[:id])
       if Time.now.strftime("%d/%m/%Y") != Currentdate.last[:date]
         songs = Song.all
