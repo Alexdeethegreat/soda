@@ -151,19 +151,21 @@ body{
 #user{
 	position: relative;
 	display: inline-block;
-	background-color: red;
+	font-size: 2em;
 	left: 5em;
 }
 
 #my_genre{
 	position: relative;
 	display: inline-block;
+	font-size: 1em;
 	left: 5em;
 }
 
 #my_location{
 	position: relative;
 	display: inline-block;
+	font-size: 1em;
 	left: 5em;
 }
 
