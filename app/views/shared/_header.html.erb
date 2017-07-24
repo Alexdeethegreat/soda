@@ -4,14 +4,23 @@
     <h1 id='title'>Song Of the Day App (SODA!)</h1>
     <!-- PROFILE LINK -->
     <div id='profile' class="p-2">
-        <%= link_to("Profile", "/users/#{@current_user[:id]}") %>
+        <%= link_to("|Profile|", "/users/#{@current_user[:id]}") %>
     </div>
+        <!-- Favorite Song link -->
+    <div id='profile' class="p-2">
+        <%= link_to("|Favorite Songs|", "/songs")%>
+        <%= link_to("|Favorite Artists|", "/artists")%>
+
+    </div>
+
+
+
     <!-- SONG SEARCH -->
     <div id='search' class="p-2">
-        <%= link_to("Add Song", search_path) %>
+        <%= link_to("|Add Song|", search_path) %>
     </div>
     <!-- LOGOUT -->
     <div id='logout' class="p-2">
-        <%= link_to("Logout", logout_path, method: "delete") %>
+        <%= link_to("|Logout|", logout_path, method: "delete") %>
     </div>
 </div>

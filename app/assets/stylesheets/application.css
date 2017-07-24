@@ -192,11 +192,12 @@ a:hover {
 }
 
 #day{
-	position: relative;
+/*	position: relative;*/
+/*	display: inline-block;*/
 	left: 40em;
 	background-color: white;
 	width: 250px;
-	height: 250px;
+/*	height: 250px;*/
 }
 
 #artist{
@@ -226,6 +227,17 @@ a:hover {
 	align-items: center;
 	flex-direction: column;
 	left: 20px;
+}
+
+.edit-form {
+	color: black;
+	position: relative;
+	font-size: 30px;
+	margin: 0 auto;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	left: 70px;
 }
 
 /********* FAVORITES ************/
@@ -382,6 +394,20 @@ a:hover {
 @media (max-width: 1200px) { 
 
 
+
+ }
+
+ /*Artist page*/
+
+ .art_1 {
+ 	color: black;
+	position: relative;
+	font-size: 30px;
+	margin: 0 auto;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	left: 20px;
 
  }
 
