@@ -116,6 +116,15 @@ heroku create <NAME-OF-APP-GOES-HERE>
 	2. run heroku run rails db:seed to seed your database on heroku
 
 
+## User Stories
+Oh my god! WHAT ARE MY FRIENDS LISTENING TO RIGHT NOW?  
+
+- BEC DEE 
+
+I heard about this new cool app!; SODA! 
+
+- Julie W. 
+
 
 
 ## Built With
