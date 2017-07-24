@@ -30,12 +30,33 @@ class UsersController < ApplicationController
             votes.push(song)
           end
           found = false
+        end
+
+        puts "BEFORE SORT"
+        votes.each do |song|
+          puts song[:name]
+          puts song[:votes]
+        end
+
+        max = Song.last
+        count = 0
+
+        votes.each do |song|
+          if song[:votes] > count
+            max = song
+            count = song[:votes]
+          end
+        end
+
+        puts "AFTER SORT"
+
+        puts max[:name]
+
+        songs.each do |song|
           song.update(votes: 0)
         end
 
-        sorted = votes.sort_by { |k| k[:votes] }
-
-        @song_of_the_day = sorted.last
+        @song_of_the_day = max
         Currentdate.last.update(date: "#{Time.now.strftime("%d/%m/%Y")}", song: "#{@song_of_the_day[:spotify_id]}")
       else
         @song_of_the_day = Song.where(spotify_id: Currentdate.last[:song])[0]
